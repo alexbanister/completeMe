@@ -144,7 +144,7 @@ describe('PrefixTrie', () => {
     it('should populate the tree from the dictionary', function () {
       tree.populate(dictionary);
 
-      assert.equal(tree.wordCount, 235886);
+      assert.equal(tree.wordCount, 234371);
 
       assert.deepEqual(tree.getWords('piz'), ["pize", "pizza", "pizzeria", "pizzicato", "pizzle"]);
     });

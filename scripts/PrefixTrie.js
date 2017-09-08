@@ -22,8 +22,10 @@ class PrefixTrie {
       }
       currentNode = currentNode[letters[i]];
     }
-    currentNode.endOfWord = true;
-    this.wordCount++;
+    if (currentNode.endOfWord === false) {
+      currentNode.endOfWord = true;
+      this.wordCount++;
+    }
   }
 
   getWords (word) {
