@@ -151,12 +151,10 @@ class PrefixTrie {
       }
       currentNode = currentNode[letters[i]];
     }
-    // if (currentNode.endOfWord === false) {
+    if (currentNode.endOfWord === false) {
       currentNode.endOfWord = true;
       this.wordCount++;
-    // } else {
-      // console.log(word);
-    // }
+    }
   }
 
   getWords (word) {
@@ -201,12 +199,11 @@ class PrefixTrie {
     let sorted = suggestions.sort( (a, b) => {
       return b.selected - a.selected;
     });
-    let justWords = [];
 
-    sorted.forEach( (word) => {
-      justWords.push(word.word);
-    });
-    return justWords;
+    return sorted.reduce( (accum, nodeThing) => {
+      accum.push(nodeThing.word);
+      return accum;
+    }, []);
   }
 
   selectWord (word, value) {
